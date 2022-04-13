@@ -57,13 +57,13 @@ const routes: Routes = [
         component: ProductComponent,
       },
       {
-        path: "phone-form",
+        path: "phones/create",
         component: ProductFormComponent,
       },
       {
-        path: "phone-form/:id",
+        path: "phones/edit/:id",
         component: ProductFormComponent,
-      }
+      },
     ]
   },
   {

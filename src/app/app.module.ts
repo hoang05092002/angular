@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './layouts/clients/product-detail/product-detail.component';
 import { SidebarComponent } from './layouts/admin/sidebar/sidebar.component';
 import { ProductFormComponent } from './layouts/admin/product-form/product-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,14 @@ import { ProductFormComponent } from './layouts/admin/product-form/product-form.
     SidebarComponent,
     ProductFormComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [ProductService],
   bootstrap: [AppComponent],
 })

@@ -14,21 +14,19 @@ export class ProductService {
     return this.http.get(apiUrl);
   }
 
-  getProduct(id: undefined | string) {
+  getProduct(id: number|string|undefined) {
     return this.http.get(`${apiUrl}/${id}`);
-    // ~ apiUrl + '/' + id
-    // ~ 'http://localhost:3000/Products/1
   }
 
   deleteProduct(id: number | string) {
     return this.http.delete(`${apiUrl}/${id}`);
   }
 
-  createProduct(obj: {name:string, class: string}) {
-    return this.http.post(apiUrl, obj);
+  createProduct(data: any) {
+    return this.http.post(apiUrl, data);
   }
 
-  updateProduct(id: number|string, obj: any) {
+  updateProduct(id: number|string|undefined, obj: any) {
     return this.http.put(`${apiUrl}/${id}`, obj);
   }
 }

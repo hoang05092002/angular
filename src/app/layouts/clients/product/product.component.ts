@@ -16,7 +16,9 @@ export class ClientProductComponent implements OnInit {
 
   onGetList (){
     this.productService.getProducts().subscribe(data => {
-      this.products = data;
+      this.products = Object.values(data).filter((e) => {
+        return e.status === 0;
+      });
     })
   }
 }

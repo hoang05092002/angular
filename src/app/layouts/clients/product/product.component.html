@@ -7,8 +7,8 @@
       </h2>
     </div>
     <div class="row" >
-      <div class="col-sm-6 col-xl-3" *ngFor="let product of products">
-        <div class="box">
+      <div class="col-sm-6 col-xl-3" *ngFor="let product of products" >
+        <div class="box" >
           <a routerLink="/phones/{{ product.id }}">
             <div class="img-box">
               <img src="{{product.image}}" alt="">
@@ -24,8 +24,8 @@
                 </span>
               </h6>
             </div>
-            <div class="new">
-              <span>
+            <div class="new" *ngIf="product.new == 0">
+              <span >
                 New
               </span>
             </div>

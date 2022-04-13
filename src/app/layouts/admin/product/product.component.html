@@ -16,7 +16,7 @@
           <div class="card">
               <div class="card-body">
                   <h5 class="card-title">Phones</h5>
-                  <a routerLink="/admin/phone-form"><button class="btn btn-primary">Create Products</button></a>
+                  <a routerLink="/admin/phones/create"><button class="btn btn-primary">Create Products</button></a>
 
                   <!-- Table with stripped rows -->
                   <table class="table datatable">
@@ -26,6 +26,7 @@
                               <th scope="col">Name</th>
                               <th scope="col">Description</th>
                               <th scope="col">Price</th>
+                              <th scope="col">Image</th>
                               <th scope="col">Status</th>
                               <th colspan="2">Action</th>
                           </tr>
@@ -36,17 +37,18 @@
                               <td>{{product.name}}</td>
                               <td>{{product.desc}}</td>
                               <td>{{product.price}}</td>
+                              <td><img src="{{product.image}}" class="img-box" width="100px" alt=""></td>
                               <td *ngIf="product.status == 0">
-                                <button class="btn btn-success"><i class="fa-regular fa-thumbs-up"></i></button>
+                                <button class="btn btn-success" (click)="onChangeStatus(product.id, product.status)"><i class="fa-regular fa-thumbs-up"></i></button>
                               </td>
                               <td *ngIf="product.status == 1">
-                                <button class="btn btn-danger"><i class="fa-regular fa-thumbs-down"></i></button>
+                                <button class="btn btn-danger" (click)="onChangeStatus(product.id, product.status)"><i class="fa-regular fa-thumbs-down"></i></button>
                               </td>
                               <td>
-                                <a routerLink="/admin/phone-form/{{product.id}}"><button class="btn btn-success">Edit</button></a>
+                                <a routerLink="/admin/phones/edit/{{product.id}}"><button class="btn btn-info">Edit</button></a>
                               </td>
                               <td>
-                                <button class="btn btn-danger">Delete</button>
+                                <button (click)="onDelete(product.id)" class="btn btn-danger">Delete</button>
                               </td>
                           </tr>
                       </tbody>
